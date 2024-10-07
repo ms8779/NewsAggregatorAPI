@@ -17,4 +17,7 @@ Route::middleware('auth:sanctum')->group(function (){
     // To filter news by category_id = ?, author_id = ?, source_id = ? any if them;
     // You can use all option at once or none of them
     Route::post('news', [NewsController::class, 'index']);
+
+    // To retrieve a single new by id.
+    Route::get('news/{id}', [NewsController::class, 'show']);
 });

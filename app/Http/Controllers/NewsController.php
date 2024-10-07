@@ -35,4 +35,15 @@ class NewsController extends Controller
 
         return response()->json(['news' => $news], Response::HTTP_OK);
     }
+
+    public function show(Request $request, $id){
+
+        $news = DB::table('news')->where('id', $id)->first();
+
+        if(!$news){
+            return response()->json(null, Response::HTTP_NO_CONTENT);
+        }
+
+        return response()->json($news, Response::HTTP_OK);
+    }
 }
