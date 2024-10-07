@@ -29,6 +29,10 @@ class NewsController extends Controller
 
         $news  = $query->orderBy('published_at', 'desc')->paginate($size);
 
+        if(!$news->total()){
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
+
         return response()->json(['news' => $news], Response::HTTP_OK);
     }
 }
