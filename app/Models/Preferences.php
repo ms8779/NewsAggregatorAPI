@@ -29,7 +29,7 @@ class Preferences extends Model
     protected function casts(): array
     {
         return [
-            'categories' => 'array'
+            'categories' => 'string'
         ];
     }
 }

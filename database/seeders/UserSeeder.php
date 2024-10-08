@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\Preferences;
 use App\Models\Source;
 use App\Models\User;
-use App\Models\UserSetting;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 
@@ -24,16 +25,6 @@ class UserSeeder extends Seeder
                 'name' => 'Administrator',
                 'email' => 'admin@newsaggregator.com',
                 'password' => Hash::make('admin@321'),
-            ]
-        );
-
-        UserSetting::updateOrCreate(
-            ['user_id' => $user->id],
-            [
-                'user_id' => $user->id,
-                'categories' => [Category::first()->id],
-                'sources' => [Source::first()->id],
-                'authors' => [Author::first()->id],
             ]
         );
     }
