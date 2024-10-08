@@ -22,6 +22,8 @@ Route::middleware('auth:sanctum')->group(function (){
     // To retrieve a single new by id.
     Route::get('news/{id}', [NewsController::class, 'show']);
 
+    Route::get('preferred/news', [NewsController::class, 'preferred']);
+
     Route::get('preferences', [PreferencesController::class, 'index']);
     Route::post('preferences', [PreferencesController::class, 'create']);
 });
