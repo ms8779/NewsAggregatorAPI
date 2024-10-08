@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PreferencesController;
 
 Route::post('/user/register', [AccountController::class, "register"]);
 Route::post('/user/login', [LoginController::class, "login"]);
@@ -20,4 +21,7 @@ Route::middleware('auth:sanctum')->group(function (){
 
     // To retrieve a single new by id.
     Route::get('news/{id}', [NewsController::class, 'show']);
+
+    Route::get('preferences', [PreferencesController::class, 'index']);
+    Route::post('preferences', [PreferencesController::class, 'create']);
 });
