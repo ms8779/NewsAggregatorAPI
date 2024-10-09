@@ -11,34 +11,11 @@ Link: [API Documentation](https://app.swaggerhub.com/apis/MS8779I/NewsAggregator
 #### Overview
 
 This API is build using Docker. docker-compose.yml is provided in route directory. 
-You can use laravel/sail or simply docker-compose. You also need to provide API keys
-for fetching news to online news sources. I use New York Time, The Guardian 
-and NewsOrg source API's for it. So you have to provide API access keys for all three
-sources in .env file. More over you can also change and set default parameters related to database. 
-These parameters names are provided in .env.example. You can copy the file, 
-rename it to .env and then change the parameters values in .env file. 
-
+You can use laravel/sail or simply docker-compose. 
 ### Requirements
 - You must have installed Docker, Docker Compose.
 - If you do not want to use laravel/sail You must also have installed php
 - You must have installed Composer
-
-### .env
- - create a .env file by copying and renaming .env.example file.
- - Set values for
-- ##### Required
-   - THE_GUARDIAN_KEY=
-   - NEW_YORK_TIMES_KEY=
-   - NEWS_ORG_KEY=
-
-- ##### Default can be changed
-
-  - DB_HOST=database
-  - DB_PORT=3306
-  - DB_DATABASE=news_aggregator
-  - DB_USERNAME=root
-  - DB_PASSWORD=
-
     
 
 ### Commands
