@@ -27,9 +27,9 @@ class PreferencesController extends Controller
         ]);
 
         if (!$result){
-
+            return response()->json(['message' => 'Setting preferences failed.'], Response::HTTP_BAD_REQUEST);
         }
 
-        return response()->json(['success' => true], Response::HTTP_OK);
+        return response()->json(['message' => 'Preferences Updated Successfully.'], Response::HTTP_OK);
     }
 }
