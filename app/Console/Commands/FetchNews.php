@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Jobs\NewsSyncJob;
+use App\Services\NewYorkTimesService;
 use App\Services\TheGuardianService;
 use Illuminate\Console\Command;
 
@@ -27,7 +28,7 @@ class FetchNews extends Command
      */
     public function handle()
     {
-        $newsSources = ['news_org', 'the_guardian'];
+        $newsSources = ['news_org', 'the_guardian', 'ny_times'];
 
         foreach ($newsSources as $ns){
             NewsSyncJob::dispatch($ns);
