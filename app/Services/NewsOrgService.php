@@ -42,7 +42,7 @@ class NewsOrgService
                         'name' => $news['source']['name']
                     ],
                     'author' => $news['author'] ? [
-                        'name' => self::formatAuthor($news['author'])
+                        'name' => NewsService::formatAuthor($news['author'])
                     ] : null,
                     'category' => null
                 ];
@@ -52,9 +52,5 @@ class NewsOrgService
         return app(NewsService::class)->save($newsData);
     }
 
-    private static function formatAuthor(?string $authors): ?string
-    {
-        if (is_null($authors)) return null;
-        return explode(',', $authors)[0] ?? '';
-    }
+
 }

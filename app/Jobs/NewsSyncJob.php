@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Services\NewsOrgService;
+use App\Services\TheGuardianService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 
@@ -27,6 +28,9 @@ class NewsSyncJob implements ShouldQueue
     public function handle(): void
     {
         switch ($this->sourceName) {
+            case 'the_guardian':
+                app(TheGuardianService::class)->fetchAndSave();
+                break;
             case 'news_org':
                 app(NewsOrgService::class)->fetchAndSave();
                 break;

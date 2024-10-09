@@ -52,4 +52,10 @@ class NewsService
             'published_at',
         ]);
     }
+
+    public static function formatAuthor(?string $authors): ?string
+    {
+        if (is_null($authors)) return null;
+        return explode(',', $authors)[0] ?? '';
+    }
 }
