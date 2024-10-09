@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -31,17 +32,12 @@ class AccountController
             return $validator->errors();
         }
 
-        if(!$request->privacy_and_gtc_accepted){
-            return response()->json(['message' => 'Privacy Policy and GTCs must be accepted.'], 400);
-        }
-
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return response()->json(['success' => true], 200);
+        return response()->json(['message' => 'User Register Successfully.'], 200);
     }
-
 }

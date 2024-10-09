@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
+use App\Models\Category;
 use App\Models\News;
 use App\Models\Preferences;
+use App\Models\Source;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -74,5 +77,35 @@ class NewsController extends Controller
         }
 
         return response()->json($news, Response::HTTP_OK);
+    }
+
+    public function categories(Request $request){
+        $categories= Category::query()->get();
+
+        if(empty($categories)){
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
+
+        return response()->json($categories, Response::HTTP_OK);
+    }
+
+    public function authors(Request $request){
+        $authors= Author::query()->get();
+
+        if(empty($authors)){
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
+
+        return response()->json($authors, Response::HTTP_OK);
+    }
+
+    public function sources(Request $request){
+        $source= Source::query()->get();
+
+        if(empty($source)){
+            return response()->json([], Response::HTTP_NO_CONTENT);
+        }
+
+        return response()->json($source, Response::HTTP_OK);
     }
 }
