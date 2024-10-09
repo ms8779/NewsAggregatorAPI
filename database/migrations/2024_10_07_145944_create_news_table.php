@@ -20,10 +20,11 @@ return new class extends Migration
             if (getenv('DB_CONNECTION' === 'sqlite')) {
                 $table->text('title')->nullable();
                 $table->text('description')->nullable();
+            }else{
+                $table->text('title')->fulltext()->nullable();
+                $table->text('description')->fulltext()->nullable();
             }
 
-            $table->text('title')->fulltext()->nullable();
-            $table->text('description')->fulltext()->nullable();
             $table->text('url')->nullable();
             $table->text('image_url')->nullable();
 
